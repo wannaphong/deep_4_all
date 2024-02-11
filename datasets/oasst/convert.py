@@ -23,7 +23,7 @@ class ListDataset(Dataset):
 
 def load_oasst_export(
         hf_dataset_name: Optional[str] = "OpenAssistant/oasst2",
-        lang: str = "fr,en,de,es,it",
+        lang: str = "th",
         top_k: Optional[int] = None,
         manual_seed: int = 287631038922,
         mode: Literal["sft", "rm", "rl"] = "sft",
@@ -170,4 +170,4 @@ if __name__ == "__main__":
         langs.append(conversation.conversation[0].lang)
 
     ds = datasets.Dataset.from_dict({"conversation": formated, "langs": langs})
-    ds.push_to_hub("blancsw/oasst2_top1_chat_format", commit_message="Add Lang column")
+    ds.push_to_hub("pythainlp/oasst2_thai_top1_chat_format", commit_message="Add Lang column")
